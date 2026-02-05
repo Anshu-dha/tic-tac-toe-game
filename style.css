@@ -1,0 +1,281 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: 'Rubik', sans-serif;
+  font-style: italic;
+}
+
+/* Fullscreen Centered Body */
+body {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: linear-gradient(135deg, #1A2980, #97e1f5);
+}
+
+/* Starry Background Canvas */
+#stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Player Selection Box */
+.selection {
+  padding: 3rem 5rem;
+  border-radius: 8px;
+  text-align: center;
+  background: #f9f9f9;
+  box-shadow:
+    6px 4px 20px rgba(0, 0, 0, 0.1),
+    inset 6px 4px 12px rgba(0, 0, 0, .2);
+}
+
+.selection h2 {
+  color: #fb5cb4;
+  font-size: 4rem;
+  font-weight: 600;
+  font-variant: small-caps;
+}
+
+.selection p {
+  color: #222;
+  font-size: 1.5rem;
+  font-weight: 500;
+  font-variant: small-caps;
+  margin-top: 2rem;
+}
+
+.selection .players {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.selection .player {
+  width: 5.5rem;
+  height: 4rem;
+  margin: 0 4px;
+  font-size: 2rem;
+  border-radius: 4px;
+  border: 3px solid #f12573;
+  color: #bf5385;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.selection .player:hover {
+  background: #f12573;
+  color: #fff;
+}
+
+/* Fade In & Out Animations */
+.fadeOut {
+  animation: hide 0.3s linear alternate;
+}
+
+.fadeIn {
+  animation: show 0.3s linear alternate;
+}
+
+@keyframes hide {
+  from {
+      opacity: 1;
+      transform: scale(1);
+  }
+  to {
+      opacity: 0;
+      transform: scale(0);
+  }
+}
+
+@keyframes show {
+  from {
+      opacity: 0;
+      transform: scale(0);
+  }
+  to {
+      opacity: 1;
+      transform: scale(1);
+  }
+}
+
+/* PlayBoard Styling */
+.play-board {
+  display: none;
+  padding: 2rem;
+  border-radius: 8px;
+  background: #f9f9f9;
+  text-align: center;
+  box-shadow:
+    6px 4px 20px rgba(0, 0, 0, 0.1),
+    inset 6px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+table td {
+  width: 3em;
+  height: 3em;
+  font-size: 2em;
+  text-align: center;
+  background: #fc92a8;
+  border: 2px solid #f9f9f9;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+/* Reset Game Button */
+.reset {
+  margin-top: 2rem;
+  padding: 0.5rem 1.2rem;
+  font-size: 1.5rem;
+  border-radius: 4px;
+  border: 3px solid #f12573;
+  color: #bf5385;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.reset:hover {
+  background: #f12573;
+  color: #fff;
+}
+
+/* Winner Box */
+.winner {
+  display: none;
+  padding: 2.5rem 3rem;
+  border-radius: 8px;
+  text-align: center;
+  background: #f9f9f9;
+  z-index: 1;
+  position: relative;
+  box-shadow:
+    6px 4px 20px rgba(0, 0, 0, 0.1),
+    inset 6px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.winner h3 {
+  font-size: 2rem;
+  font-weight: 500;
+  font-variant: small-caps;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .selection,
+  .play-board,
+  .winner {
+      padding: 2rem;
+      width: 90%;
+  }
+  .selection h2 {
+      font-size: 2.5rem;
+  }
+  .selection p {
+      font-size: 1.2rem;
+  }
+  .selection .player {
+      width: 4rem;
+      height: 3rem;
+      font-size: 1.5rem;
+  }
+  table td {
+      width: 2.5em;
+      height: 2.5em;
+      font-size: 1.5em;
+  }
+  .reset {
+      font-size: 1.2rem;
+      padding: 0.4rem 1rem;
+  }
+  .winner h3 {
+      font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .selection h2 {
+      font-size: 2rem;
+  }
+  .selection p {
+      font-size: 1rem;
+  }
+  .selection .player {
+      width: 3rem;
+      height: 2.5rem;
+      font-size: 1.2rem;
+  }
+  table td {
+      width: 2em;
+      height: 2em;
+      font-size: 1.2em;
+  }
+  .reset {
+      font-size: 1rem;
+  }
+  .winner h3 {
+      font-size: 1.2rem;
+  }
+}
+
+/* Difficulty Selection Box */
+.difficulty {
+  padding: 2.5rem 4rem;
+  border-radius: 8px;
+  text-align: center;
+  background: #f9f9f9;
+  box-shadow:
+    6px 4px 20px rgba(0, 0, 0, 0.1),
+    inset 6px 4px 12px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1.5rem;
+  animation: show 0.4s ease-in-out;
+}
+
+.difficulty h2 {
+  color: #fb5cb4;
+  font-size: 3rem;
+  font-weight: 600;
+  font-variant: small-caps;
+  margin-bottom: 1rem;
+}
+
+.diff-btn {
+  margin: 0 0.5rem;
+  padding: 0.6rem 1.4rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-radius: 4px;
+  border: 3px solid #f12573;
+  color: #bf5385;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.diff-btn:hover {
+  background: #f12573;
+  color: #fff;
+}
+
+/* Responsive Design for Difficulty Section */
+@media (max-width: 768px) {
+  .difficulty {
+      padding: 2rem;
+  }
+  .difficulty h2 {
+      font-size: 2rem;
+  }
+  .diff-btn {
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+  }
+}
