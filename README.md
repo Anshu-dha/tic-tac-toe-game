@@ -39,6 +39,12 @@ This project focuses on clean UI, user experience, and intelligent gameplay usin
 - Draw conditions are handled when no empty cells remain.
 
 ---
+
+## 🚀 Live Demo
+
+👉 View the live project here: 
+https://anshu-dha.github.io/tic-tac-toe-game/
+
 ## Preview Game
 ![Game Preview](preview1.png)
 ![Game Preview](preview2.png)
